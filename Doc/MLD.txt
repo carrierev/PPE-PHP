@@ -1,0 +1,24 @@
+Modèle Logique de Données Relationnelle "MLDR" : 
+
+GSB_UTILISATEUR (  id_utilisateur,   nom_utilisateur,   prenom_utilisateur,   mail_utilisateur,   mdp_utilisateur  )
+	clé primaire : id_utilisateur
+
+GSB_CATEGORIE (  id_categorie,   nom_categorie  )
+	clé primaire : id_categorie
+
+GSB_ETAT (  id_etat,   nom_etat  )
+	clé primaire : id_etat
+
+GSB_PRIORITE (  id_priorite,   nom_priorite  )
+	clé primaire : id_priorite
+
+GSB_TICKET (  id_ticket,   titre_ticket,   contenu_ticket,   date_creation_ticket,   id_categorie,   id_priorite,   id_utilisateur  )
+	clé primaire : id_ticket
+	clé étrangère : id_categorie en référence à GSB_CATEGORIE( id_categorie )
+	clé étrangère : id_priorite en référence à GSB_PRIORITE( id_priorite )
+	clé étrangère : id_utilisateur en référence à GSB_UTILISATEUR( id_utilisateur )
+
+AVOIR ( id_ticket, id_etat, date_etat )
+	clé primaire : id_utilisateur, id_etat
+	clé étrangère : id_ticket en référence à GSB_TICKET( id_ticket )
+	clé étrangère : id_etat en référence à GSB_ETAT( id_etat )
